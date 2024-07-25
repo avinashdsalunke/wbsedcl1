@@ -1,9 +1,13 @@
 package com.qa.opencart.pages;
 
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.WebDriver;
+	import java.util.ArrayList;
+import java.util.List;
 
-	import com.qa.opencart.constants.Constant;
+import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.qa.opencart.constants.Constant;
 	import com.qa.opencart.utils.ElementUtil;
 
 	import io.qameta.allure.Step;
@@ -13,13 +17,12 @@ package com.qa.opencart.pages;
 		private WebDriver driver;
 		private ElementUtil eleUtil;
 		
-		private By keyword=By.linkText(" Fast, Efficient and Productive ");
-		private By homepagelogo=By.xpath("//img[@alt=\"Logo\"]");
-		private By slogan=By.cssSelector("WBSEDCL is innovating and embarking upon an IT-enabled system across the organisation ");
-		private By signin=By.linkText("Sign In");
-		private By registerlink=By.linkText("Click Here");
+		private By keyword=By.xpath("//h1[@class=\"fw-bolder fs-2qx pb-5 pb-md-10 text-white\"]");
+		private By slogan=By.xpath("//p[@class=\"fw-bold fs-7 text-white\"]");
+		private By signin=By.xpath("//h1[@class=\"text-dark mb-3\"]");
+		private By registerlink=By.xpath("(//div[@class=\"text-center\"])[2]");
 		private By footermenu=By.xpath("//a[@target=\"_blank\"]");
-		
+		private By WBlogo=By.xpath("//*[@id=\"kt_body\"]/div/div/div[1]/div/div/div/a/img");
 		public HomePage(WebDriver driver) {
 			this.driver=driver;
 			eleUtil=new ElementUtil(driver);
@@ -39,6 +42,55 @@ package com.qa.opencart.pages;
 			return url;
 			
 		}
+		
+		public String iskeywordexist() {
+			
+			return eleUtil.doElementGetText(keyword);
+			
+			}
+		
+		public String issloganexist() {
+			return eleUtil.doElementGetText(slogan);
+
+		}
+		public String issignbuttonexist() {
+			return eleUtil.doElementGetText(signin);
+
+		}
+		public String isregisterlinkexist() {
+			return eleUtil.doElementGetText(registerlink);
+
+		}
+		
+		public List<String> getfooterList(){
+			
+			List<WebElement>FooterList=eleUtil.waitForElementsVisible(footermenu, Constant.DEFAULT_MEDIUM_TIME_OUT);
+			List<String> footervallist=new ArrayList<String>();
+			for(WebElement R:FooterList) {
+				String text=R.getText();
+				footervallist.add(text);
+			}
+			return footervallist;
+			
+		}
+		
+		public boolean Islogodisplay() {
+			return eleUtil.doElementIsDisplayed(WBlogo);
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 

@@ -44,13 +44,13 @@ public class ExtentReportListener implements ITestListener {
 		
 		extentReports = new ExtentReports();
 		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
-		reporter.config().setReportName("Open Cart Automation Test Results");
+		reporter.config().setReportName("WBSEDCL");
 		extentReports.attachReporter(reporter);
 		extentReports.setSystemInfo("System", "Window");
-		extentReports.setSystemInfo("Author", "Naveen AutomationLabs");
+		extentReports.setSystemInfo("Author", "WBSEDCL");
 		extentReports.setSystemInfo("Build#", "1.1");
-		extentReports.setSystemInfo("Team", "OpenCart QA Team");
-		extentReports.setSystemInfo("Customer Name", "Monika");
+		extentReports.setSystemInfo("Team", "WBSEDCL QA Team");
+		extentReports.setSystemInfo("Customer Name", "avinash");
 
 
 		//extentReports.setSystemInfo("ENV NAME", System.getProperty("env"));

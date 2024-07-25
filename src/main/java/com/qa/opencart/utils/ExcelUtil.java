@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtil {
 
-	private static final String TEST_DATA_SHEET_PATH = "./src/test/resources/testdata/register_openCart.xlsx";
+	private static final String TEST_DATA_SHEET_PATH = "./src/test/resources/testdata/testdatawb.xlsx";
 	private static Workbook book;
 	private static Sheet sheet;
 
